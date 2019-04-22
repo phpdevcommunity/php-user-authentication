@@ -1,6 +1,7 @@
 {
     "name": "fad/php-user-authentication",
-    "type": "library",
+    "type": "package",
+    "description": "a Simple PHP User Auth",
     "require-dev": {
         "phpunit/phpunit": "^7.2"
     },
@@ -17,6 +18,5 @@
             "Test\\Fad\\Authentication\\": "tests"
         }
     },
-    "require": {},
-    "description": ""
+    "require": {}
 }
