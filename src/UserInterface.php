@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Webby\Authentication;
+namespace Fad\Authentication;
 
 /**
  * Interface UserInterface
- * @package Webby\Authentication
+ * @package Fad\Authentication
  */
 interface UserInterface
 {

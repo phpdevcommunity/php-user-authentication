@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Test\Webby\Authentication;
+namespace Test\Fad\Authentication;
 
 
-use Webby\Authentication\UserInterface;
+use Fad\Authentication\UserInterface;
 
 class User implements UserInterface
 {

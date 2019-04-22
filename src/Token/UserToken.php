@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Webby\Authentication\Token;
+namespace Fad\Authentication\Token;
 
 
-use Webby\Authentication\UserInterface;
+use Fad\Authentication\UserInterface;
 
 /**
  * Class UserToken
- * @package Webby\Authentication\Token
+ * @package Fad\Authentication\Token
  */
 class UserToken implements UserTokenInterface
 {

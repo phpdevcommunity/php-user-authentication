@@ -7,15 +7,16 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Fady M.R",
-            "email": "fadymichel.r@gmail.com"
+            "name": "Fad M.R",
+            "email": "fad@heycoder.xyz"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Webby\\Authentication\\": "src/",
-            "Test\\Webby\\Authentication\\": "tests"
+            "Fad\\Authentication\\": "src/",
+            "Test\\Fad\\Authentication\\": "tests"
         }
     },
-    "require": {}
+    "require": {},
+    "description": ""
 }

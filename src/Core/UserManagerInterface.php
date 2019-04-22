@@ -1,9 +1,9 @@
 <?php
 
-namespace Webby\Authentication\Core;
+namespace Fad\Authentication\Core;
 
-use Webby\Authentication\Token\UserTokenInterface;
-use Webby\Authentication\UserInterface;
+use Fad\Authentication\Token\UserTokenInterface;
+use Fad\Authentication\UserInterface;
 
 interface UserManagerInterface {
 

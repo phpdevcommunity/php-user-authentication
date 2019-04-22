@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Webby\Authentication\Core;
+namespace Fad\Authentication\Core;
 
 /**
  * Trait PasswordTrait
- * @package Webby\Authentication\Core
+ * @package Fad\Authentication\Core
  */
 trait PasswordTrait {
 
