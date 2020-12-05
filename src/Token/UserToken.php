@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Fad\Authentication\Token;
+namespace DevCoder\Authentication\Token;
 
 
-use Fad\Authentication\UserInterface;
+use DevCoder\Authentication\UserInterface;
 
 /**
  * Class UserToken
@@ -24,62 +24,26 @@ class UserToken implements UserTokenInterface
     private $providerKey;
 
 
-    /**
-     * UserToken constructor.
-     * @param UserInterface $user
-     * @param string $providerKey
-     */
     public function __construct(UserInterface $user, string $providerKey = self::DEFAULT_PROVIDER_KEY)
     {
-        $this
-            ->setUser($user)
-            ->setProviderKey($providerKey);
+        $this->user = $user;
+        $this->providerKey = $providerKey;
     }
 
-    /**
-     * @return UserInterface
-     */
     public function getUser(): UserInterface
     {
         return $this->user;
     }
 
-    /**
-     * @param UserInterface $user
-     * @return UserToken
-     */
-    public function setUser(UserInterface $user): UserTokenInterface
-    {
-        $this->user = $user;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getProviderKey(): string
     {
         return $this->providerKey;
     }
 
-    /**
-     * @param string $providerKey
-     * @return UserToken
-     */
-    public function setProviderKey(string $providerKey): UserTokenInterface
-    {
-        $this->providerKey = $providerKey;
-        return $this;
-    }
-
-
-    /**
-     * @return string
-     */
     public function serialize(): string
-    {
+    {  if ($cost < 4 || $cost > 12) {
+        throw new \InvalidArgumentException('Cost must be in the range of 4-31.');
+    }
         return serialize($this);
     }
-
-
 }

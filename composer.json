@@ -1,5 +1,5 @@
 {
-    "name": "fad/php-user-authentication",
+    "name": "devcoder-xyz/php-user-authentication",
     "type": "package",
     "description": "a Simple PHP User Auth",
     "require-dev": {
@@ -9,14 +9,16 @@
     "authors": [
         {
             "name": "Fad M.R",
-            "email": "fad@heycoder.xyz"
+            "email": "fadymichel@devcoder.xyz"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Fad\\Authentication\\": "src/",
-            "Test\\Fad\\Authentication\\": "tests"
+            "DevCoder\\Authentication": "src",          
+            "Test\\DevCoder\\Authentication": "tests"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=7.3"
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Fad\Authentication\Core;
+namespace DevCoder\Authentication\Core;
 
-use Fad\Authentication\Token\UserToken;
-use Fad\Authentication\Token\UserTokenInterface;
-use Fad\Authentication\UserInterface;
+use DevCoder\Authentication\Token\UserToken;
+use DevCoder\Authentication\Token\UserTokenInterface;
+use DevCoder\Authentication\UserInterface;
 
 /**
  * Class UserManager
@@ -15,12 +15,8 @@ class UserManager implements UserManagerInterface
 
     use PasswordTrait;
 
-    /**
-     * @return null|UserTokenInterface
-     */
     public function getUserToken(): ?UserTokenInterface
     {
-
         $userToken = null;
         if ($this->hasUserToken()) {
             $userToken = unserialize($_SESSION[UserTokenInterface::DEFAULT_PREFIX_KEY]);
@@ -29,10 +25,6 @@ class UserManager implements UserManagerInterface
         return $userToken;
     }
 
-
-    /**
-     * @return bool
-     */
     public function hasUserToken() :bool
     {
         $this->initSession();
@@ -40,34 +32,24 @@ class UserManager implements UserManagerInterface
         return (array_key_exists($key, $_SESSION) && unserialize($_SESSION[$key]) !== false);
     }
 
-    /***
-     * @param array $roles
-     * @return bool
-     */
-    public function isGranted(array $roles)
+    public function isGranted(array $roles): bool
     {
-
         if (!is_null($userToken = $this->getUserToken())) {
-
-            if ($userToken->getUser() instanceof UserInterface) {
-                return (
-                    !empty(array_intersect(
-                        $roles,
-                        $userToken->getUser()->getRoles()
-                    ))
-                );
-            }
-
+            return false;
         }
 
+        if ($userToken->getUser() instanceof UserInterface) {
+            return (
+                !empty(array_intersect(
+                    $roles,
+                    $userToken->getUser()->getRoles()
+                ))
+            );
+        }
 
         return false;
     }
 
-    /**
-     * @param UserInterface $user
-     * @return UserTokenInterface
-     */
     public function createUserToken(UserInterface $user): UserTokenInterface
     {
         $this->initSession();
@@ -77,27 +59,17 @@ class UserManager implements UserManagerInterface
         return $userToken;
     }
 
-
-    /**
-     * @return void
-     */
     public function logout(): void
     {
         if ($this->hasUserToken()) {
             unset($_SESSION[UserTokenInterface::DEFAULT_PREFIX_KEY]);
         }
-
     }
 
-
-    /**
-     * @return void
-     */
     private function initSession() :void
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
-
 }

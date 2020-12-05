@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Test\Fad\Authentication;
+namespace Test\DevCoder\Authentication;
 
 
-use Fad\Authentication\UserInterface;
+use DevCoder\Authentication\UserInterface;
 
 class User implements UserInterface
 {
