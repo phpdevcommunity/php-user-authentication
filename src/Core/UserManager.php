@@ -8,12 +8,19 @@ use DevCoder\Authentication\UserInterface;
 
 /**
  * Class UserManager
- * @package Webby\Authentication\Core
+ * @package DevCoder\Authentication\Core
  */
 class UserManager implements UserManagerInterface
 {
 
     use PasswordTrait;
+
+    public function __construct()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
 
     public function getUserToken(): ?UserTokenInterface
     {
@@ -25,9 +32,8 @@ class UserManager implements UserManagerInterface
         return $userToken;
     }
 
-    public function hasUserToken() :bool
+    public function hasUserToken(): bool
     {
-        $this->initSession();
         $key = UserTokenInterface::DEFAULT_PREFIX_KEY;
         return (array_key_exists($key, $_SESSION) && unserialize($_SESSION[$key]) !== false);
     }
@@ -39,12 +45,7 @@ class UserManager implements UserManagerInterface
         }
 
         if ($userToken->getUser() instanceof UserInterface) {
-            return (
-                !empty(array_intersect(
-                    $roles,
-                    $userToken->getUser()->getRoles()
-                ))
-            );
+            return (!empty(array_intersect($roles, $userToken->getUser()->getRoles())));
         }
 
         return false;
@@ -52,7 +53,6 @@ class UserManager implements UserManagerInterface
 
     public function createUserToken(UserInterface $user): UserTokenInterface
     {
-        $this->initSession();
         $userToken = new UserToken($user);
         $_SESSION[UserTokenInterface::DEFAULT_PREFIX_KEY] = $userToken->serialize();
 
@@ -63,13 +63,6 @@ class UserManager implements UserManagerInterface
     {
         if ($this->hasUserToken()) {
             unset($_SESSION[UserTokenInterface::DEFAULT_PREFIX_KEY]);
-        }
-    }
-
-    private function initSession() :void
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
         }
     }
 }

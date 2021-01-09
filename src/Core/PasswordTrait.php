@@ -7,13 +7,10 @@ use DevCoder\Authentication\UserInterface;
 
 /**
  * Trait PasswordTrait
- * @package Fad\Authentication\Core
+ * @package DevCoder\Authentication\Core
  */
-trait PasswordTrait {
-
-    /**
-     * @var int
-     */
+trait PasswordTrait
+{
     private $cost = 10;
 
     public function cryptPassword(string $plainPassword): string

@@ -29,7 +29,6 @@ class User implements UserInterface
      */
     private $enabled = true;
 
-
     /**
      * @return null|string
      */
@@ -66,7 +65,7 @@ class User implements UserInterface
      * @param string $userName
      * @return User
      */
-    public function setUserName(string $userName): User
+    public function setUserName(string $userName): self
     {
         $this->userName = $userName;
         return $this;
@@ -76,7 +75,7 @@ class User implements UserInterface
      * @param string $password
      * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;
@@ -86,7 +85,7 @@ class User implements UserInterface
      * @param array $roles
      * @return User
      */
-    public function setRoles(array $roles): User
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
         return $this;
@@ -96,11 +95,9 @@ class User implements UserInterface
      * @param bool $enabled
      * @return User
      */
-    public function setEnabled(bool $enabled): User
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;
     }
-
-
 }
