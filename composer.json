@@ -14,8 +14,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "DevCoder\\Authentication": "src",          
-            "Test\\DevCoder\\Authentication": "tests"
+            "DevCoder\\Authentication\\": "src",
+            "Test\\DevCoder\\Authentication\\": "tests"
         }
     },
     "require": {
