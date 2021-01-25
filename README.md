@@ -82,6 +82,36 @@ $userManager = new UserManager();
 $userManager->logout();
 ```
 
+***Login***
+
+```php
+<?php
+
+use DevCoder\Authentication\Core\UserManager;
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE username=?");
+$stmt->execute([$_POST['username']]);
+$userFromDataBase = $stmt->fetch();
+/**
+ * Hydration
+ */
+$user = (new \Test\DevCoder\Authentication\User())
+    ->setUserName($userFromDataBase['username'])
+    ->setPassword($userFromDataBase['password'])
+    ->setRoles(json_decode($userFromDataBase['roles']))
+    ->setEnabled($userFromDataBase['active']);
+
+$userManager = new UserManager();
+if ($userManager->isPasswordValid($user, $_POST['password'])) {
+
+    // login OK, set Token in session
+    $userManager->createUserToken($user);
+
+}else {
+ // login failed , return error
+}
+```
+
 Ideal for small project
 Simple and easy!
 [https://github.com/devcoder-xyz/php-user-authentication](https://github.com/devcoder-xyz/php-user-authentication)
