@@ -1,4 +1,5 @@
 # PHP-user-authentication
+[![Latest Stable Version](https://poser.pugx.org/devcoder-xyz/php-user-authentication/v)](//packagist.org/packages/devcoder-xyz/php-user-authentication) [![Total Downloads](https://poser.pugx.org/devcoder-xyz/php-user-authentication/downloads)](//packagist.org/packages/devcoder-xyz/php-user-authentication) [![Latest Unstable Version](https://poser.pugx.org/devcoder-xyz/php-user-authentication/v/unstable)](//packagist.org/packages/devcoder-xyz/php-user-authentication) [![License](https://poser.pugx.org/devcoder-xyz/php-user-authentication/license)](//packagist.org/packages/devcoder-xyz/php-user-authentication)
 
 *PHP version required 7.3*
 
